@@ -11,6 +11,13 @@ packer-frontend:
 
 build: $(TARGETS)
 
+run:
+	go run cmd/packer-api/main.go
+
 clean:
 	rm -f ./bin/*
 	find . -name *~ -exec rm {} \;
+
+tar:
+	tar -cvf ${HOME}/packer.tar.gitignore *
+
