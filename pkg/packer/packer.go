@@ -46,8 +46,8 @@ func merge(input []int, buckets []int) []int {
 	return merged[:j]
 }
 
-// pack packages (sic!) into sorted set of buckets (ordered MAX to MIN)
-func pack(items int, buckets []int) []int {
+// Pack packages (sic!) into sorted set of buckets (ordered MAX to MIN)
+func Pack(items int, buckets []int) []int {
 	var results []int
 
 	// use greedy search for best fitting buckets

@@ -88,7 +88,7 @@ func TestPack(t *testing.T) {
 	}
 	for i := range tests {
 		t.Run(fmt.Sprintf("%d-%v->%v", tests[i].input, tests[i].buckets, tests[i].expected), func(t *testing.T) {
-			result := pack(tests[i].input, tests[i].buckets)
+			result := Pack(tests[i].input, tests[i].buckets)
 			assert.Equal(t, tests[i].expected, result)
 		})
 	}
