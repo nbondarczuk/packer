@@ -1,0 +1,9 @@
+pplication:
+  name: packer-api
+server:
+  http:
+    address: localhost
+    port: 8080
+log:
+  level: DEBUG
+  format: text
