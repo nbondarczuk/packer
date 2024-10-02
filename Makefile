@@ -19,5 +19,5 @@ clean:
 	find . -name *~ -exec rm {} \;
 
 tar:
-	tar -cvf ${HOME}/packer.tar.gitignore *
-
+	tar -cvf ${HOME}/packer.tar .gitignore *
+	gzip ${HOME}/packer.tar

@@ -15,7 +15,7 @@ func TestGettersWithStringRV(t *testing.T) {
 		{
 			label:    "ApplicationName",
 			getter:   ApplicationName,
-			expected: "go-gin-server3",
+			expected: "packer-api",
 		},
 		{
 			label:    "ServerHTTPAddress",
