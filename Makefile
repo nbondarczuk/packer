@@ -27,3 +27,5 @@ clean:
 tar:
 	tar -cvf ${HOME}/packer.tar .gitignore *
 	gzip ${HOME}/packer.tar
+
+.PHONY: test

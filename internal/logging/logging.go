@@ -35,7 +35,6 @@ func Init(version, level, format string) error {
 	}
 
 	attrs := &slog.HandlerOptions{
-		ReplaceAttr: replaceAttr,
 		Level:       l,
 	}
 

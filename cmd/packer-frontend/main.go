@@ -40,7 +40,7 @@ func main() {
 			packs.Buckets = append(packs.Buckets, val)
 		}
 
-		fmt.Printf("Request: %v", packs)
+		fmt.Printf("Request: %+v\n", packs)
 
 		var response PackRequestResponse
 
@@ -52,9 +52,11 @@ func main() {
 			SetResult(&response).
 			Post("http://localhost:8080/pack")
 		if err != nil {
-			fmt.Printf("ERROR: %v", err)
+			fmt.Printf("ERROR: %v\n", err)
+		} else if response.Status != "Ok" {
+			fmt.Printf("STATUS: %s\n", response.Status)
 		} else {
-			fmt.Printf("Response: %v", response)
+			fmt.Printf("Response: %+v\n", response)
 			resultField.SetText("Packages: " + fmt.Sprintf("%v", response.Packs))
 		}
 	})
@@ -77,7 +79,7 @@ func main() {
 
 			// the rest will take all the rest of the space
 			container.NewCenter(
-				widget.NewLabel("Buckets: "+os.Getenv("BUCKETS")),
+				widget.NewLabel("Buckets: ["+os.Getenv("BUCKETS")+"]"),
 			),
 		),
 	)

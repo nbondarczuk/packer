@@ -85,6 +85,21 @@ func TestPack(t *testing.T) {
 			[]int{5000, 2000, 1000, 500, 250},
 			[]int{5000, 5000, 2000, 250},
 		},
+		{
+			100,
+			[]int{100, 20, 1},
+			[]int{100},
+		},
+		{
+			20,
+			[]int{100, 20, 1},
+			[]int{20},
+		},
+		{
+			1,
+			[]int{100, 20, 1},
+			[]int{1},
+		},
 	}
 	for i := range tests {
 		t.Run(fmt.Sprintf("%d-%v->%v", tests[i].input, tests[i].buckets, tests[i].expected), func(t *testing.T) {
