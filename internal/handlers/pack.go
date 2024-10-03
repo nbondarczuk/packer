@@ -34,7 +34,7 @@ func PackHandler(c *gin.Context) {
 	rval := packer.Pack(packs.Value, packs.Buckets)
 	r := map[string]interface{}{
 		"Status": "Ok",
-		"Object": rval,
+		"Packs": rval,
 	}
 
     logging.Logger.Debug("Response", slog.String("body", fmt.Sprintf("%+v", rval)))

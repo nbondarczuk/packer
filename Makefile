@@ -1,7 +1,13 @@
 TARGETS = packer-api packer-frontend
 
+tidy:
+	go mod tidy
+
 test:
 	go test -v ./...
+
+runtest:
+	./test/run/post-pack.sh
 
 packer-api:
 	go build -o bin/packer-api cmd/packer-api/main.go
