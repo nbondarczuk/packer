@@ -28,7 +28,6 @@ func TestMerge(t *testing.T) {
 			[]int{5000, 2000, 1000, 500, 250},
 			[]int{2000, 500},
 		},
-
 	}
 
 	for i := range tests {
@@ -99,6 +98,16 @@ func TestPack(t *testing.T) {
 			1,
 			[]int{100, 20, 1},
 			[]int{1},
+		},
+		{
+			14,
+			[]int{12, 5},
+			[]int{12, 5},
+		},
+		{
+			14,
+			[]int{5, 12},
+			[]int{12, 5},
 		},
 	}
 	for i := range tests {

@@ -1,5 +1,9 @@
 package packer
 
+import (
+	"sort"
+)
+
 // buckets is sorted MAX to MIN so linear seach gets the first fitting one
 func maxFittingBucket(buckets []int, limit int) int {
 	// find first bucket fitting the limit
@@ -9,14 +13,14 @@ func maxFittingBucket(buckets []int, limit int) int {
 		}
 	}
 	// every bucket is bigger than limit so take the smallest one
-	return len(buckets)-1
+	return len(buckets) - 1
 }
 
 // looks for encompassing bucket if any found
 func existsBetterBucket(buckets []int, value int) (bool, int) {
-	for i := len(buckets)-1; i >= 0; i-- {
+	for i := len(buckets) - 1; i >= 0; i-- {
 		// smallest fitting bucket not same as the value
-		if buckets[i] > value && buckets[i] % value == 0 {
+		if buckets[i] > value && buckets[i]%value == 0 {
 			return true, i
 		}
 	}
@@ -28,7 +32,7 @@ func merge(input []int, buckets []int) []int {
 	var j int
 	merged := make([]int, len(input))
 	for i := 0; i < len(input); i++ {
-		if i < len(input) - 1 && input[i] == input[i+1] {
+		if i < len(input)-1 && input[i] == input[i+1] {
 			found, index := existsBetterBucket(buckets, input[i])
 			if found {
 				merged[j] = buckets[index]
@@ -49,6 +53,9 @@ func merge(input []int, buckets []int) []int {
 // Pack packages (sic!) into sorted set of buckets (ordered MAX to MIN)
 func Pack(items int, buckets []int) []int {
 	var results []int
+
+	// In case
+	sort.Slice(buckets, func(i, j int) bool { return buckets[i] > buckets[j] })
 
 	// use greedy search for best fitting buckets
 	var i int

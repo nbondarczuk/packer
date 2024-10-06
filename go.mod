@@ -6,7 +6,6 @@ require (
 	fyne.io/fyne/v2 v2.5.1
 	github.com/gin-gonic/gin v1.10.0
 	github.com/go-resty/resty/v2 v2.15.3
-	github.com/mdobak/go-xerrors v0.3.1
 	github.com/spf13/viper v1.19.0
 	github.com/stretchr/testify v1.9.0
 )
